@@ -1,0 +1,26 @@
+extends layout
+include _includes/sharedMixins
+block content
+ .row.banner
+   .h1= title 
+   .col-12
+     h1.reg-tittle #{pageHeader.title}
+       small &nbsp; #{pageHeader.strapline}
+ .row
+   .col-12.col-md-8
+    each location in locations
+     .card
+       .card-block
+        .h4
+          a(href="/location")= location.placeName
+          small &nbsp;
+            +rating(location.votes)  
+          span.badge.badge-pill.badge-default.float-right= location.mapLocation
+        p.loc-info Tip zagadjenja: [Fizicko]   
+        p.loc-info Vrsta zagadjenja: [Voda - Vazduh - Zemljiste]
+        .facilities
+          span.badge.badge-warning Slike
+          span.badge.badge-warning Video
+   .col-12.col-md-4
+     p.lead App lets you find where nature is treated badly.
+
